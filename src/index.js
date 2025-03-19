@@ -21,10 +21,7 @@ addButtons();
 // 3) connect project form to project object & display in console
 
 // create button for adding new project
-// new todo button will call create todo and tie it to a project
-// 2.2) be able to create a pop up form and ensure it is displaying info to console
-
-
+// 2.1) be able to create a pop up form and ensure it is displaying info to console
 
 // create button for adding new todo
 // new project button will call project object and feed info into it
@@ -37,7 +34,7 @@ addButtons();
 // create pop up form for new todo
 // responds to event listener when button is pushed
 // contains form info feeding into todo object
-// 6.2) create pop up form and ensure info is displayed to console
+// 6.3) create pop up form and ensure info is displayed to console
 
 // create render for single project
 // contains info for rendering a single project card
