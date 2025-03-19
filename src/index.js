@@ -1,4 +1,5 @@
 import "./styles.css";
+import { addButtons } from "./addButtons";
 
 const container = document.getElementById("container");
 
@@ -8,6 +9,8 @@ headerDiv.classList.add("header");
 headerDiv.innerHTML = "<h1>Todo List</h1>";
 container.appendChild(headerDiv);
 
+// run function for add buttons
+addButtons();
 
 // create function for containing todo objects
 // needs title, desc, date, priority
@@ -20,6 +23,8 @@ container.appendChild(headerDiv);
 // create button for adding new project
 // new todo button will call create todo and tie it to a project
 // 2.2) be able to create a pop up form and ensure it is displaying info to console
+
+
 
 // create button for adding new todo
 // new project button will call project object and feed info into it
