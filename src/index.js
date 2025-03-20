@@ -2,6 +2,13 @@ import "./styles.css";
 import { addButtons } from "./addButtons";
 
 const container = document.getElementById("container");
+const projects = [{
+    projTitle: "Main",
+    projDesc: "General todo list",
+    todos: []
+}];
+
+console.log("Initial projects array:", projects);
 
 // header
 const headerDiv = document.createElement("div");
@@ -45,7 +52,7 @@ addButtons();
 // contains info for rendering all project cards
 // 5) display all projects
 
-
+export { projects };
 
 
 

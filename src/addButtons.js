@@ -1,5 +1,6 @@
 import "./styles.css";
 import { formsPopUp } from "./formsPopUp.js";
+import { projects } from "./index.js";
 
 function addButtons() {
     // creates add buttons div
