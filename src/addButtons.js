@@ -1,4 +1,5 @@
 import "./styles.css";
+import { formsPopUp } from "./formsPopUp.js";
 
 function addButtons() {
     // creates add buttons div
@@ -21,6 +22,8 @@ function addButtons() {
     projectButton.classList.add("addButton");
     projectButton.innerHTML = "+";
     projectButtonDiv.appendChild(projectButton);
+
+    projectButton.addEventListener("click", () => formsPopUp("project"));
 
     // creates div for adding a todo
     const todoButtonDiv = document.createElement("div");
