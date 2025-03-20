@@ -31,7 +31,7 @@ function addButtons() {
     todoButtonDiv.classList.add("buttonDiv");
     addButtonsDiv.appendChild(todoButtonDiv);
 
-    // creates content for add project
+    // creates content for add todo
     const todoAddText = document.createElement("h2");
     todoAddText.classList.add("addDescription");
     todoAddText.innerHTML = "Add a todo";
@@ -41,6 +41,8 @@ function addButtons() {
     todoButton.classList.add("addButton");
     todoButton.innerHTML = "+";
     todoButtonDiv.appendChild(todoButton);
+
+    todoButton.addEventListener("click", () => formsPopUp("todo"));
 }
 
 export { addButtons };

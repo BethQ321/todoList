@@ -3,6 +3,7 @@ import { addButtons } from "./addButtons";
 
 const container = document.getElementById("container");
 const projects = [{
+    projId: "Main",
     projTitle: "Main",
     projDesc: "General todo list",
     todos: []
