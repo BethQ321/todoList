@@ -1,5 +1,6 @@
 import "./formStyles.css";
 import { projects } from "./index.js";
+import { renderProjects } from "./renderProjects.js";
 
 const projectFormHTML = `
     <h3>New Project</h3>
@@ -52,6 +53,7 @@ function formsPopUp(formType) {
         formPopUp.style.display = "none";
         overlay.remove();
         formPopUp.remove();
+        renderProjects(projects);
     }
 
     overlay.addEventListener("click", closeForm);
@@ -80,18 +82,21 @@ function formsPopUp(formType) {
 
                 projects.push(project);
 
-                console.log("Project added:", project);
-                console.log("All projects:", projects);
-
                 closeForm();
             }
 
+            console.log("Updated project list", projects)
+
             form.addEventListener("submit", handleSubmit);
+            // renderProjects(projects);
                 
         }, 0);
-    } else if(formType === "todo") {
-        
+    } else if(formType === "todo") {        
         setTimeout(() => {
+            const form = document.getElementById("todoForm");
+            if (!form) return;
+
+            // Create the dropdown menu options
             const projectDropdown = document.getElementById("todoProjectDD");
             if (!projectDropdown) return;
 
@@ -104,9 +109,7 @@ function formsPopUp(formType) {
                 projectDropdown.appendChild(option);
             });
 
-            const form = document.getElementById("todoForm");
-            if (!form) return;
-
+            // Handle the submission of the new todo
             form.removeEventListener("submit", handleSubmit);
 
             function handleSubmit(event) {
@@ -122,21 +125,20 @@ function formsPopUp(formType) {
                     todoDesc
                 }
 
+                // Push the todo to the correct project
                 projects.forEach((project) => {
-                    console.log("projects Title", project.projTitle);
-                    console.log("todo project", newTodo.project);
                     if(project.projTitle === newTodo.project) {
                         project.todos.push(newTodo);
                     } 
                 })
 
-                console.log("Todo added:", newTodo);
-                console.log("All projects:", projects);
-
                 closeForm();
             }
 
+            console.log("Updated project list", projects)
+
             form.addEventListener("submit", handleSubmit);
+            //renderProjects(projects);
                 
         }, 0);
     } else {

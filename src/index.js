@@ -1,15 +1,17 @@
 import "./styles.css";
 import { addButtons } from "./addButtons";
+import { renderProjects } from "./renderProjects.js"
 
 const container = document.getElementById("container");
 const projects = [{
     projId: "Main",
     projTitle: "Main",
     projDesc: "General todo list",
-    todos: []
+    todos: [{project: 'Main', todoTitle: "wash dishes", todoDesc: "get dishes washed for dinner"}, 
+        {project: 'Main', todoTitle: "mow lawn", todoDesc: "neighbors keep giving us dirty looks"}, 
+        {project: 'Main', todoTitle: "paint nails", todoDesc: "Date night!!"}
+    ]
 }];
-
-console.log("Initial projects array:", projects);
 
 // header
 const headerDiv = document.createElement("div");
@@ -20,38 +22,16 @@ container.appendChild(headerDiv);
 // run function for add buttons
 addButtons();
 
-// create function for containing todo objects
-// needs title, desc, date, priority
-// 6.1) create todo object function
+// run function to render projects
+function renderProjectsDiv() {
+    const projectsDiv = document.createElement("div");
+    projectsDiv.classList.add("projectsDiv");
+    projectsDiv.innerHTML = "<h2>Current Projects</h2>";
+    container.appendChild(projectsDiv);
 
-// create function for containing project object 
-// needs title, desc, array of todo objects
-// 3) connect project form to project object & display in console
-
-// create button for adding new project
-// 2.1) be able to create a pop up form and ensure it is displaying info to console
-
-// create button for adding new todo
-// new project button will call project object and feed info into it
-// 6.2) create pop up form and ensure info is displayed to console
-
-// create pop up form for new project
-// responds to event listener when button is pushed
-// 2.2) be able to create a pop up form and ensure it is displaying info to console
-
-// create pop up form for new todo
-// responds to event listener when button is pushed
-// contains form info feeding into todo object
-// 6.3) create pop up form and ensure info is displayed to console
-
-// create render for single project
-// contains info for rendering a single project card
-// 4) create built-in "main" project and display
-// 7) add rendering for todo objects
-
-// create render for all projects
-// contains info for rendering all project cards
-// 5) display all projects
+    renderProjects();
+}
+renderProjectsDiv();
 
 export { projects };
 
