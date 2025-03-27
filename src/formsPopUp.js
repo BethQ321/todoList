@@ -81,15 +81,10 @@ function formsPopUp(formType) {
                 }
 
                 projects.push(project);
-
+                localStorage.setItem("localProjects", JSON.stringify(projects));
                 closeForm();
             }
-
-            console.log("Updated project list", projects)
-
-            form.addEventListener("submit", handleSubmit);
-            // renderProjects(projects);
-                
+            form.addEventListener("submit", handleSubmit);                
         }, 0);
     } else if(formType === "todo") {        
         setTimeout(() => {
@@ -129,17 +124,13 @@ function formsPopUp(formType) {
                 projects.forEach((project) => {
                     if(project.projTitle === newTodo.project) {
                         project.todos.push(newTodo);
+                        localStorage.setItem("localProjects", JSON.stringify(projects));
                     } 
                 })
 
                 closeForm();
             }
-
-            console.log("Updated project list", projects)
-
-            form.addEventListener("submit", handleSubmit);
-            //renderProjects(projects);
-                
+            form.addEventListener("submit", handleSubmit);                
         }, 0);
     } else {
         return;

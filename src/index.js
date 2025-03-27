@@ -3,15 +3,35 @@ import { addButtons } from "./addButtons";
 import { renderProjects } from "./renderProjects.js"
 
 const container = document.getElementById("container");
-const projects = [{
-    projId: "Main",
-    projTitle: "Main",
-    projDesc: "General todo list",
-    todos: [{project: 'Main', todoTitle: "wash dishes", todoDesc: "get dishes washed for dinner"}, 
-        {project: 'Main', todoTitle: "mow lawn", todoDesc: "neighbors keep giving us dirty looks"}, 
-        {project: 'Main', todoTitle: "paint nails", todoDesc: "Date night!!"}
-    ]
-}];
+const projects = JSON.parse(localStorage.getItem("localProjects")) || [];
+
+if (projects.length === 0) {
+    const mainProject = {
+            projId: "Main",
+            projTitle: "Main",
+            projDesc: "General todo list",
+            todos: [{project: 'Main', todoTitle: "wash dishes", todoDesc: "get dishes washed for dinner"}, 
+                {project: 'Main', todoTitle: "mow lawn", todoDesc: "neighbors keep giving us dirty looks"}, 
+                {project: 'Main', todoTitle: "paint nails", todoDesc: "Date night!!"}
+            ]
+        }
+    projects.push(mainProject);
+    localStorage.setItem("localProjects", JSON.stringify(projects));
+}
+
+console.log(projects);
+
+// [{
+//     projId: "Main",
+//     projTitle: "Main",
+//     projDesc: "General todo list",
+//     todos: [{project: 'Main', todoTitle: "wash dishes", todoDesc: "get dishes washed for dinner"}, 
+//         {project: 'Main', todoTitle: "mow lawn", todoDesc: "neighbors keep giving us dirty looks"}, 
+//         {project: 'Main', todoTitle: "paint nails", todoDesc: "Date night!!"}
+//     ]
+// }];
+
+
 
 // header
 const headerDiv = document.createElement("div");
